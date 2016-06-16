@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'CopperKit_Example' do
+  pod 'CopperKit', :path => '../'
+
+  target 'CopperKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
