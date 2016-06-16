@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gLF-gM-Sub">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Web Kit View Controller-->
+        <scene sceneID="6Cb-4X-lur">
+            <objects>
+                <viewController storyboardIdentifier="WebKitViewController" id="gLF-gM-Sub" customClass="WebKitViewController" customModule="CopperKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I6s-GX-N38"/>
+                        <viewControllerLayoutGuide type="bottom" id="GHb-54-MBD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X56-Or-fhU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hCg-jR-AJr">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="orD-4c-rf5">
+                                <rect key="frame" x="0.0" y="20" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.26822815290000002" green="1" blue="0.93134226070000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="KEl-1R-VhD"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkD-s8-y5i">
+                                <rect key="frame" x="326" y="30" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="ODk-Eo-1sq"/>
+                                    <constraint firstAttribute="width" secondItem="gkD-s8-y5i" secondAttribute="height" multiplier="1:1" id="dg4-rR-ftY"/>
+                                </constraints>
+                                <state key="normal" image="copperkit-icon-close"/>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="gLF-gM-Sub" eventType="touchUpInside" id="ZJE-9E-ql7"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kT-w9-tna" userLabel="Network Activity Indicator" customClass="NetworkActivityIndicatorView" customModule="CopperKit">
+                                <rect key="frame" x="0.0" y="20" width="375" height="2"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="zvU-GD-Lf6"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Djx-qw-29e">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.26822815290000002" green="1" blue="0.93134226070000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="2g7-Gl-xVJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="orD-4c-rf5" firstAttribute="width" secondItem="X56-Or-fhU" secondAttribute="width" id="91G-wH-dii"/>
+                            <constraint firstItem="7kT-w9-tna" firstAttribute="top" secondItem="I6s-GX-N38" secondAttribute="bottom" id="A1x-zf-h62"/>
+                            <constraint firstAttribute="trailing" secondItem="gkD-s8-y5i" secondAttribute="trailing" constant="5" id="KYN-2G-eqL"/>
+                            <constraint firstItem="7kT-w9-tna" firstAttribute="width" secondItem="X56-Or-fhU" secondAttribute="width" id="Qj1-c4-oyp"/>
+                            <constraint firstItem="hCg-jR-AJr" firstAttribute="width" secondItem="X56-Or-fhU" secondAttribute="width" id="TXp-Tn-aC1"/>
+                            <constraint firstItem="orD-4c-rf5" firstAttribute="centerX" secondItem="X56-Or-fhU" secondAttribute="centerX" id="Zo3-kz-EBl"/>
+                            <constraint firstItem="orD-4c-rf5" firstAttribute="top" secondItem="I6s-GX-N38" secondAttribute="bottom" id="ceE-Au-cfK"/>
+                            <constraint firstItem="Djx-qw-29e" firstAttribute="centerX" secondItem="X56-Or-fhU" secondAttribute="centerX" id="eAY-xf-u2V"/>
+                            <constraint firstItem="GHb-54-MBD" firstAttribute="top" secondItem="hCg-jR-AJr" secondAttribute="bottom" id="fkr-20-xVx"/>
+                            <constraint firstItem="hCg-jR-AJr" firstAttribute="centerX" secondItem="X56-Or-fhU" secondAttribute="centerX" id="iXl-mX-dqr"/>
+                            <constraint firstItem="GHb-54-MBD" firstAttribute="top" secondItem="Djx-qw-29e" secondAttribute="bottom" id="lXR-om-XZU"/>
+                            <constraint firstItem="Djx-qw-29e" firstAttribute="width" secondItem="X56-Or-fhU" secondAttribute="width" id="ndf-6a-y9L"/>
+                            <constraint firstItem="7kT-w9-tna" firstAttribute="centerX" secondItem="X56-Or-fhU" secondAttribute="centerX" id="r59-K9-1Pz"/>
+                            <constraint firstItem="gkD-s8-y5i" firstAttribute="top" secondItem="I6s-GX-N38" secondAttribute="bottom" constant="10" id="skG-Fm-RoR"/>
+                            <constraint firstItem="hCg-jR-AJr" firstAttribute="top" secondItem="I6s-GX-N38" secondAttribute="bottom" id="zO9-aG-KAb"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="bottomGradientView" destination="Djx-qw-29e" id="Sys-ic-PAp"/>
+                        <outlet property="closeButton" destination="gkD-s8-y5i" id="VJe-vP-k2V"/>
+                        <outlet property="networkActivityIndicator" destination="7kT-w9-tna" id="2d1-EK-xjU"/>
+                        <outlet property="topGradientView" destination="orD-4c-rf5" id="Vei-JW-DgB"/>
+                        <outlet property="webView" destination="hCg-jR-AJr" id="4FU-bg-7dX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nd7-mW-wc7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="427.5" y="69.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="copperkit-icon-close" width="24" height="24"/>
+    </resources>
+</document>

@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ptc-X7-jQp">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Copper Alert View Controller-->
+        <scene sceneID="550-W4-XZ7">
+            <objects>
+                <viewController storyboardIdentifier="AlertViewControllerRef" id="ptc-X7-jQp" customClass="CopperAlertViewController" customModule="CopperKit" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DPQ-od-Jqs"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mkk-v3-Ml4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f3l-aR-Oam">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7l7-0u-AM7" customClass="C29RoundedView" customModule="CopperKit">
+                                <rect key="frame" x="0.0" y="137" width="375" height="667"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZXK-gt-08N">
+                                        <rect key="frame" x="0.0" y="20" width="375" height="627"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="com.copper.alert.headerImageCell" id="o1j-v5-ARk" customClass="CopperAlertHeaderImageCell" customModule="CopperKit" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o1j-v5-ARk" id="dNS-Et-dBw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l7L-wG-2yW">
+                                                            <rect key="frame" x="150" y="15" width="75" height="75.5"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="skj-94-9Px">
+                                                                    <rect key="frame" x="4" y="4" width="66" height="66.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="66" id="V2y-Pd-nif"/>
+                                                                        <constraint firstAttribute="width" secondItem="skj-94-9Px" secondAttribute="height" multiplier="1:1" id="t0c-jQ-3aZ"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="75" id="A5X-5u-bu9"/>
+                                                                <constraint firstItem="skj-94-9Px" firstAttribute="centerX" secondItem="l7L-wG-2yW" secondAttribute="centerX" id="Bso-HL-GHJ"/>
+                                                                <constraint firstAttribute="width" secondItem="l7L-wG-2yW" secondAttribute="height" multiplier="1:1" id="NoF-gx-j2n"/>
+                                                                <constraint firstItem="skj-94-9Px" firstAttribute="centerY" secondItem="l7L-wG-2yW" secondAttribute="centerY" id="p0n-IA-96D"/>
+                                                                <constraint firstAttribute="height" constant="75.5" id="pxh-p0-emD"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="l7L-wG-2yW" secondAttribute="bottom" constant="20" id="4ih-fm-ru0"/>
+                                                        <constraint firstItem="l7L-wG-2yW" firstAttribute="top" secondItem="dNS-Et-dBw" secondAttribute="top" constant="15" id="HQS-O7-zqv"/>
+                                                        <constraint firstItem="l7L-wG-2yW" firstAttribute="centerX" secondItem="dNS-Et-dBw" secondAttribute="centerX" id="asB-AM-1ZG"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="headerImageOutlineView" destination="l7L-wG-2yW" id="dqJ-iY-6qq"/>
+                                                    <outlet property="headerImageView" destination="skj-94-9Px" id="rd9-Lq-GYH"/>
+                                                    <outlet property="headerImageViewWidthConstraint" destination="V2y-Pd-nif" id="IFA-Du-FRl"/>
+                                                    <outlet property="headerOutlineViewWidthConstraint" destination="A5X-5u-bu9" id="KfK-AK-uwh"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="com.copper.alert.titleCell" rowHeight="52" id="9cB-Ke-cKa" customClass="CopperAlertTitleCell" customModule="CopperKit" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="72" width="375" height="52"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9cB-Ke-cKa" id="1ij-NQ-I7h">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="51.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ti-L7-76b">
+                                                            <rect key="frame" x="20" y="23" width="335" height="5.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="9ti-L7-76b" secondAttribute="bottom" constant="15" id="PJO-4N-a1D"/>
+                                                        <constraint firstAttribute="trailing" secondItem="9ti-L7-76b" secondAttribute="trailing" constant="20" id="eP2-2R-WXU"/>
+                                                        <constraint firstItem="9ti-L7-76b" firstAttribute="leading" secondItem="1ij-NQ-I7h" secondAttribute="leading" constant="20" id="pYe-6N-B6y"/>
+                                                        <constraint firstItem="9ti-L7-76b" firstAttribute="top" secondItem="1ij-NQ-I7h" secondAttribute="topMargin" constant="15" id="vTb-Jd-CfG"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="titleLabel" destination="9ti-L7-76b" id="0H6-iP-uQT"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="com.copper.alert.messageCell" id="e5j-xY-9VF" customClass="CopperAlertMessageCell" customModule="CopperKit" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="124" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e5j-xY-9VF" id="H0S-62-pmd">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01B-El-1h1">
+                                                            <rect key="frame" x="20" y="23" width="335" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="01B-El-1h1" secondAttribute="trailing" constant="20" id="8iN-3s-9LH"/>
+                                                        <constraint firstItem="01B-El-1h1" firstAttribute="centerY" secondItem="H0S-62-pmd" secondAttribute="centerY" id="ETG-D4-fGS"/>
+                                                        <constraint firstItem="01B-El-1h1" firstAttribute="top" secondItem="H0S-62-pmd" secondAttribute="topMargin" constant="15" id="r9L-fe-c0M"/>
+                                                        <constraint firstItem="01B-El-1h1" firstAttribute="leading" secondItem="H0S-62-pmd" secondAttribute="leading" constant="20" id="wdx-cM-71O"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="01B-El-1h1" secondAttribute="bottom" constant="15" id="xQ8-AK-1uT"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="messageLabel" destination="01B-El-1h1" id="X4E-Q6-S8n"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="com.copper.alert.imageCell" id="fMt-6u-OsX" customClass="CopperAlertImageCell" customModule="CopperKit" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="168" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fMt-6u-OsX" id="ABW-qC-78I">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZPc-nm-JQg">
+                                                            <rect key="frame" x="175" y="15" width="24" height="13.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" priority="750" constant="24" id="A3T-LT-Gkf"/>
+                                                                <constraint firstAttribute="width" priority="750" constant="24" id="EdB-OV-0RD"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="ZPc-nm-JQg" firstAttribute="centerX" secondItem="ABW-qC-78I" secondAttribute="centerX" id="26b-ZO-jB4"/>
+                                                        <constraint firstItem="ZPc-nm-JQg" firstAttribute="top" secondItem="ABW-qC-78I" secondAttribute="top" constant="15" id="6EN-bp-qLv"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ZPc-nm-JQg" secondAttribute="bottom" constant="15" id="kdV-5r-fcC"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="_imageView" destination="ZPc-nm-JQg" id="oK1-X0-UIp"/>
+                                                    <outlet property="imageViewHeightConstraint" destination="A3T-LT-Gkf" id="doZ-Nx-xC7"/>
+                                                    <outlet property="imageViewWidthConstraint" destination="EdB-OV-0RD" id="ctA-IW-jox"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="com.copper.alert.actionButtonCell" id="iYw-wr-39V" customClass="CopperAlertActionButtonCell" customModule="CopperKit" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="212" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iYw-wr-39V" id="Qhh-uQ-hL6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5h-MX-Adc">
+                                                            <rect key="frame" x="20" y="15" width="335" height="51.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="52" id="xcZ-GG-Szq"/>
+                                                            </constraints>
+                                                            <state key="normal" title="ActionButton">
+                                                                <color key="titleColor" red="1" green="0.65002219189999999" blue="0.38946641840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="buttonPressed:" destination="iYw-wr-39V" eventType="touchUpInside" id="R73-pP-i3O"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="h5h-MX-Adc" firstAttribute="leading" secondItem="Qhh-uQ-hL6" secondAttribute="leading" constant="20" id="9Ud-Ul-y0J"/>
+                                                        <constraint firstAttribute="trailing" secondItem="h5h-MX-Adc" secondAttribute="trailing" constant="20" id="9qY-Le-FRq"/>
+                                                        <constraint firstAttribute="bottom" secondItem="h5h-MX-Adc" secondAttribute="bottom" constant="15" id="PI2-YG-qTu"/>
+                                                        <constraint firstItem="h5h-MX-Adc" firstAttribute="centerY" secondItem="Qhh-uQ-hL6" secondAttribute="centerY" id="gcI-Q2-cY7"/>
+                                                        <constraint firstItem="h5h-MX-Adc" firstAttribute="top" secondItem="Qhh-uQ-hL6" secondAttribute="top" constant="15" id="lWn-lu-9Xm"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="button" destination="h5h-MX-Adc" id="fmv-h9-TxT"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="com.copper.alert.inlineButtonCell" id="dfs-0m-uqx" customClass="CopperAlertActionButtonCell" customModule="CopperKit" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="256" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dfs-0m-uqx" id="pUf-H8-TD4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxZ-8M-e2W">
+                                                            <rect key="frame" x="20" y="5" width="335" height="44.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="44" id="ChM-jT-USE"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Inline Button">
+                                                                <color key="titleColor" red="1" green="0.65002219189999999" blue="0.38946641840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="buttonPressed:" destination="dfs-0m-uqx" eventType="touchUpInside" id="S3r-24-0Dp"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="vxZ-8M-e2W" firstAttribute="top" secondItem="pUf-H8-TD4" secondAttribute="top" constant="5" id="FLs-Kn-jfQ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="vxZ-8M-e2W" secondAttribute="bottom" constant="5" id="Jc5-hI-eCx"/>
+                                                        <constraint firstAttribute="trailing" secondItem="vxZ-8M-e2W" secondAttribute="trailing" constant="20" id="Zyr-PN-XE1"/>
+                                                        <constraint firstItem="vxZ-8M-e2W" firstAttribute="leading" secondItem="pUf-H8-TD4" secondAttribute="leading" constant="20" id="hFE-Aj-L3Y"/>
+                                                        <constraint firstItem="vxZ-8M-e2W" firstAttribute="centerY" secondItem="pUf-H8-TD4" secondAttribute="centerY" id="myQ-e2-X10"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="button" destination="vxZ-8M-e2W" id="quL-VE-5Nl"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="com.copper.alert.twoButtonCell" rowHeight="55" id="knX-em-Co7" userLabel="com.copper.alert.twoButtonCell" customClass="CopperAlertTwoActionButtonCell" customModule="CopperKit" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="300" width="375" height="55"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="knX-em-Co7" id="zYK-m3-Nu7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1V-xS-oqJ">
+                                                            <rect key="frame" x="20" y="5" width="167.5" height="44.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="44" id="GTC-8A-X0V"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Inline Button">
+                                                                <color key="titleColor" red="1" green="0.65002219189999999" blue="0.38946641840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="buttonPressed:" destination="knX-em-Co7" eventType="touchUpInside" id="o2W-vD-83o"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gX9-sg-7yZ">
+                                                            <rect key="frame" x="187" y="5" width="167.5" height="44.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="44" id="H8X-hL-2gQ"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Inline Button">
+                                                                <color key="titleColor" red="1" green="0.65002219189999999" blue="0.38946641840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="buttonPressed:" destination="knX-em-Co7" eventType="touchUpInside" id="1NE-Jo-WAS"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="A1V-xS-oqJ" firstAttribute="top" secondItem="zYK-m3-Nu7" secondAttribute="top" constant="5" id="M0i-TD-F6U"/>
+                                                        <constraint firstItem="gX9-sg-7yZ" firstAttribute="width" secondItem="A1V-xS-oqJ" secondAttribute="width" id="MaU-qv-inL"/>
+                                                        <constraint firstItem="gX9-sg-7yZ" firstAttribute="top" secondItem="zYK-m3-Nu7" secondAttribute="top" constant="5" id="TgQ-G2-PCE"/>
+                                                        <constraint firstAttribute="bottom" secondItem="A1V-xS-oqJ" secondAttribute="bottom" constant="5" id="VB7-Iz-V7Y"/>
+                                                        <constraint firstItem="gX9-sg-7yZ" firstAttribute="leading" secondItem="A1V-xS-oqJ" secondAttribute="trailing" id="VT5-xa-RDC"/>
+                                                        <constraint firstItem="A1V-xS-oqJ" firstAttribute="leading" secondItem="zYK-m3-Nu7" secondAttribute="leading" constant="20" id="ams-UE-wbp"/>
+                                                        <constraint firstAttribute="bottom" secondItem="gX9-sg-7yZ" secondAttribute="bottom" constant="5" id="ehp-zk-bv3"/>
+                                                        <constraint firstAttribute="trailing" secondItem="gX9-sg-7yZ" secondAttribute="trailing" constant="20" id="wOr-D5-ROq"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="buttonLeft" destination="A1V-xS-oqJ" id="MYX-vQ-0rh"/>
+                                                    <outlet property="buttonRight" destination="gX9-sg-7yZ" id="Za6-aL-DP2"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="com.copper.alert.numberPadCell" id="ftS-4j-8pu" userLabel="com.copper.alert.numberPadCell" customClass="CopperAlertNumberPadCell" customModule="CopperKit" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="355" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ftS-4j-8pu" id="ind-Zn-h1F">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJn-f1-O1C" userLabel="Number Pad View">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="300.5"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNO-Hs-DAp" userLabel="Button1" customClass="CopperAlertNumberPadButton" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="30" width="125" height="62"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                    <state key="normal" title="1">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="numberPadButtonPressed:" destination="ftS-4j-8pu" eventType="touchUpInside" id="M5B-bz-ZUh"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1A-Rw-bHg" userLabel="Button2" customClass="CopperAlertNumberPadButton" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="125" y="30" width="125" height="62"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                    <state key="normal" title="2">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="numberPadButtonPressed:" destination="ftS-4j-8pu" eventType="touchUpInside" id="Xw6-m3-06c"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMR-NN-689" userLabel="Button3" customClass="CopperAlertNumberPadButton" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="250" y="30" width="125" height="62"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                    <state key="normal" title="3">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="numberPadButtonPressed:" destination="ftS-4j-8pu" eventType="touchUpInside" id="kFy-ZC-bzR"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00k-ID-7fR" userLabel="Button4" customClass="CopperAlertNumberPadButton" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="92" width="125" height="63"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                    <state key="normal" title="4">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="numberPadButtonPressed:" destination="ftS-4j-8pu" eventType="touchUpInside" id="QeX-YN-Vuy"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E84-7l-Hl4" userLabel="Button5" customClass="CopperAlertNumberPadButton" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="125" y="92" width="125" height="63"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                    <state key="normal" title="5">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="numberPadButtonPressed:" destination="ftS-4j-8pu" eventType="touchUpInside" id="KST-zF-lUI"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgO-2q-hTv" userLabel="Button6" customClass="CopperAlertNumberPadButton" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="250" y="92" width="125" height="63.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                    <state key="normal" title="6">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="numberPadButtonPressed:" destination="ftS-4j-8pu" eventType="touchUpInside" id="QhJ-bQ-Btw"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Qy-tA-8Kp" userLabel="Button7" customClass="CopperAlertNumberPadButton" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="155" width="125" height="63"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                    <state key="normal" title="7">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="numberPadButtonPressed:" destination="ftS-4j-8pu" eventType="touchUpInside" id="Kgo-WE-TLi"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBo-Pp-s6Q" userLabel="Button8" customClass="CopperAlertNumberPadButton" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="125" y="155" width="125" height="63"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                    <state key="normal" title="8">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="numberPadButtonPressed:" destination="ftS-4j-8pu" eventType="touchUpInside" id="yHU-IU-atf"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSs-Hu-B5O" userLabel="Button9" customClass="CopperAlertNumberPadButton" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="250" y="155" width="125" height="63"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                    <state key="normal" title="9">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="numberPadButtonPressed:" destination="ftS-4j-8pu" eventType="touchUpInside" id="DQ7-ri-1pM"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQu-Sb-tsy" customClass="CopperAlertNumberPadButton" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="125" y="218" width="125" height="62.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <state key="normal" title="0">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="numberPadButtonPressed:" destination="ftS-4j-8pu" eventType="touchUpInside" id="DGw-kh-0TZ"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-Bg-FQv" userLabel="ButtonDelete" customClass="CopperAlertNumberPadButton" customModule="CopperKit">
+                                                                    <rect key="frame" x="250" y="218" width="125" height="63"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                    <state key="normal" image="copperkit-icon-backspace">
+                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="numberPadDeleteButtonPressed:" destination="ftS-4j-8pu" eventType="touchUpInside" id="rbw-h4-7fk"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="1" green="0.16841727279999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstItem="E84-7l-Hl4" firstAttribute="top" secondItem="s1A-Rw-bHg" secondAttribute="bottom" id="334-xb-Xle"/>
+                                                                <constraint firstItem="aBo-Pp-s6Q" firstAttribute="height" secondItem="E84-7l-Hl4" secondAttribute="height" id="4c4-nB-4jr"/>
+                                                                <constraint firstItem="s1A-Rw-bHg" firstAttribute="width" secondItem="FMR-NN-689" secondAttribute="width" id="6Ha-OQ-q9x"/>
+                                                                <constraint firstItem="WUk-Bg-FQv" firstAttribute="leading" secondItem="TQu-Sb-tsy" secondAttribute="trailing" id="7k8-92-Evn"/>
+                                                                <constraint firstItem="TQu-Sb-tsy" firstAttribute="height" secondItem="aBo-Pp-s6Q" secondAttribute="height" id="A1o-0V-1oQ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="VSs-Hu-B5O" secondAttribute="trailing" id="Ap2-Xb-LEP"/>
+                                                                <constraint firstItem="00k-ID-7fR" firstAttribute="height" secondItem="E84-7l-Hl4" secondAttribute="height" id="CVc-Lk-MvW"/>
+                                                                <constraint firstAttribute="height" constant="300" id="D0N-GN-UX7"/>
+                                                                <constraint firstItem="FMR-NN-689" firstAttribute="leading" secondItem="s1A-Rw-bHg" secondAttribute="trailing" id="Dev-02-6lV"/>
+                                                                <constraint firstItem="s1A-Rw-bHg" firstAttribute="top" secondItem="XJn-f1-O1C" secondAttribute="top" constant="30" id="EGn-3f-7NI"/>
+                                                                <constraint firstItem="qNO-Hs-DAp" firstAttribute="height" secondItem="s1A-Rw-bHg" secondAttribute="height" id="J2x-hP-kp6"/>
+                                                                <constraint firstItem="qNO-Hs-DAp" firstAttribute="leading" secondItem="XJn-f1-O1C" secondAttribute="leading" id="JXH-FU-aea"/>
+                                                                <constraint firstItem="00k-ID-7fR" firstAttribute="leading" secondItem="XJn-f1-O1C" secondAttribute="leading" id="Jrv-cZ-oOf"/>
+                                                                <constraint firstItem="TQu-Sb-tsy" firstAttribute="top" secondItem="aBo-Pp-s6Q" secondAttribute="bottom" id="K4c-tX-EfE"/>
+                                                                <constraint firstItem="FMR-NN-689" firstAttribute="height" secondItem="s1A-Rw-bHg" secondAttribute="height" id="LNO-hQ-yvK"/>
+                                                                <constraint firstItem="FMR-NN-689" firstAttribute="centerY" secondItem="s1A-Rw-bHg" secondAttribute="centerY" id="Lf2-Vf-Pyw"/>
+                                                                <constraint firstAttribute="trailing" secondItem="WUk-Bg-FQv" secondAttribute="trailing" id="Nz5-LW-1UT"/>
+                                                                <constraint firstAttribute="bottom" secondItem="TQu-Sb-tsy" secondAttribute="bottom" priority="750" constant="20" id="O0p-45-eeH"/>
+                                                                <constraint firstItem="VSs-Hu-B5O" firstAttribute="height" secondItem="aBo-Pp-s6Q" secondAttribute="height" id="REW-io-T1q"/>
+                                                                <constraint firstItem="aBo-Pp-s6Q" firstAttribute="top" secondItem="E84-7l-Hl4" secondAttribute="bottom" id="RgR-i4-jFr"/>
+                                                                <constraint firstItem="s1A-Rw-bHg" firstAttribute="height" secondItem="E84-7l-Hl4" secondAttribute="height" id="SE9-pH-pdA"/>
+                                                                <constraint firstItem="qNO-Hs-DAp" firstAttribute="centerY" secondItem="s1A-Rw-bHg" secondAttribute="centerY" id="TR8-A9-2za"/>
+                                                                <constraint firstItem="3Qy-tA-8Kp" firstAttribute="height" secondItem="aBo-Pp-s6Q" secondAttribute="height" id="TvO-fs-S7W"/>
+                                                                <constraint firstItem="qNO-Hs-DAp" firstAttribute="width" secondItem="s1A-Rw-bHg" secondAttribute="width" id="UCa-hF-mZm"/>
+                                                                <constraint firstItem="EgO-2q-hTv" firstAttribute="centerY" secondItem="E84-7l-Hl4" secondAttribute="centerY" id="Umi-SN-1Y3"/>
+                                                                <constraint firstItem="EgO-2q-hTv" firstAttribute="width" secondItem="E84-7l-Hl4" secondAttribute="width" id="Yu8-oQ-lwb"/>
+                                                                <constraint firstItem="TQu-Sb-tsy" firstAttribute="width" secondItem="aBo-Pp-s6Q" secondAttribute="width" id="ZtV-vS-A2f"/>
+                                                                <constraint firstItem="WUk-Bg-FQv" firstAttribute="centerY" secondItem="TQu-Sb-tsy" secondAttribute="centerY" id="bi7-qi-ZAZ"/>
+                                                                <constraint firstItem="WUk-Bg-FQv" firstAttribute="height" secondItem="TQu-Sb-tsy" secondAttribute="height" id="c9m-pc-wgq"/>
+                                                                <constraint firstItem="3Qy-tA-8Kp" firstAttribute="width" secondItem="aBo-Pp-s6Q" secondAttribute="width" id="cCO-Td-mrM"/>
+                                                                <constraint firstItem="aBo-Pp-s6Q" firstAttribute="leading" secondItem="3Qy-tA-8Kp" secondAttribute="trailing" id="cFg-Oz-fXQ"/>
+                                                                <constraint firstItem="VSs-Hu-B5O" firstAttribute="leading" secondItem="aBo-Pp-s6Q" secondAttribute="trailing" id="dje-uh-Fy8"/>
+                                                                <constraint firstItem="EgO-2q-hTv" firstAttribute="leading" secondItem="E84-7l-Hl4" secondAttribute="trailing" id="dul-lW-h4g"/>
+                                                                <constraint firstAttribute="trailing" secondItem="EgO-2q-hTv" secondAttribute="trailing" id="hPD-Ff-v5a"/>
+                                                                <constraint firstItem="WUk-Bg-FQv" firstAttribute="width" secondItem="TQu-Sb-tsy" secondAttribute="width" id="hbH-qT-lha"/>
+                                                                <constraint firstAttribute="trailing" secondItem="FMR-NN-689" secondAttribute="trailing" id="hkC-yc-dQf"/>
+                                                                <constraint firstItem="3Qy-tA-8Kp" firstAttribute="centerY" secondItem="aBo-Pp-s6Q" secondAttribute="centerY" id="k2k-Lf-wc8"/>
+                                                                <constraint firstItem="VSs-Hu-B5O" firstAttribute="centerY" secondItem="aBo-Pp-s6Q" secondAttribute="centerY" id="lLk-Cr-hlb"/>
+                                                                <constraint firstItem="VSs-Hu-B5O" firstAttribute="width" secondItem="aBo-Pp-s6Q" secondAttribute="width" id="lcy-3J-3C2"/>
+                                                                <constraint firstItem="00k-ID-7fR" firstAttribute="centerY" secondItem="E84-7l-Hl4" secondAttribute="centerY" id="leJ-wD-5Oj"/>
+                                                                <constraint firstItem="3Qy-tA-8Kp" firstAttribute="leading" secondItem="XJn-f1-O1C" secondAttribute="leading" id="reb-od-99P"/>
+                                                                <constraint firstItem="E84-7l-Hl4" firstAttribute="leading" secondItem="00k-ID-7fR" secondAttribute="trailing" id="yuS-Vs-gsB"/>
+                                                                <constraint firstItem="s1A-Rw-bHg" firstAttribute="leading" secondItem="qNO-Hs-DAp" secondAttribute="trailing" id="ywU-FS-ZOQ"/>
+                                                                <constraint firstItem="E84-7l-Hl4" firstAttribute="width" secondItem="00k-ID-7fR" secondAttribute="width" id="zOP-pE-MRU"/>
+                                                                <constraint firstItem="EgO-2q-hTv" firstAttribute="height" secondItem="E84-7l-Hl4" secondAttribute="height" id="zQA-Ov-hMk"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="XJn-f1-O1C" firstAttribute="centerY" secondItem="ind-Zn-h1F" secondAttribute="centerY" id="YYH-6z-18n"/>
+                                                        <constraint firstItem="XJn-f1-O1C" firstAttribute="width" secondItem="ind-Zn-h1F" secondAttribute="width" id="aeL-3x-QID"/>
+                                                        <constraint firstAttribute="bottom" secondItem="XJn-f1-O1C" secondAttribute="bottom" id="i5z-Hf-Hdw"/>
+                                                        <constraint firstItem="XJn-f1-O1C" firstAttribute="top" secondItem="ind-Zn-h1F" secondAttribute="top" id="jt4-mh-XMY"/>
+                                                        <constraint firstItem="XJn-f1-O1C" firstAttribute="centerX" secondItem="ind-Zn-h1F" secondAttribute="centerX" id="qbe-WX-dDz"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="numberPad0" destination="TQu-Sb-tsy" id="vLm-Zk-adZ"/>
+                                                    <outlet property="numberPad1" destination="qNO-Hs-DAp" id="0fG-wP-eUq"/>
+                                                    <outlet property="numberPad2" destination="s1A-Rw-bHg" id="aqp-qz-7iZ"/>
+                                                    <outlet property="numberPad3" destination="FMR-NN-689" id="2wv-LO-5Oe"/>
+                                                    <outlet property="numberPad4" destination="00k-ID-7fR" id="8HN-Ly-zL1"/>
+                                                    <outlet property="numberPad5" destination="E84-7l-Hl4" id="vZa-Tb-qCR"/>
+                                                    <outlet property="numberPad6" destination="EgO-2q-hTv" id="4H8-q0-ZVv"/>
+                                                    <outlet property="numberPad7" destination="3Qy-tA-8Kp" id="Jks-tq-Y0G"/>
+                                                    <outlet property="numberPad8" destination="aBo-Pp-s6Q" id="HNW-KM-ujq"/>
+                                                    <outlet property="numberPad9" destination="VSs-Hu-B5O" id="PUR-WG-70t"/>
+                                                    <outlet property="numberPadDelete" destination="WUk-Bg-FQv" id="Mkn-ka-WG6"/>
+                                                    <outlet property="numberPadHeightConstraint" destination="D0N-GN-UX7" id="loy-Yi-C6w"/>
+                                                    <outlet property="numberPadView" destination="XJn-f1-O1C" id="m9C-KR-3kO"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="com.copper.alert.phoneNumberEntryCell" rowHeight="75" id="I7E-PN-zZP" userLabel="com.copper.alert.phoneNumberEntryCell" customClass="CopperAlertPhoneNumberEntryCell" customModule="CopperKit" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="399" width="375" height="75"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I7E-PN-zZP" id="Y9i-7K-6kF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="giv-gg-ZH1" userLabel="Phone Entry Vew">
+                                                            <rect key="frame" x="0.0" y="20" width="375" height="55"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDT-ZG-Afn" userLabel="Country Code Control" customClass="CopperKitCountryCodeControl" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="20" y="0.0" width="60" height="55"/>
+                                                                    <color key="backgroundColor" red="1" green="0.16841727279999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="60" id="fAm-wx-sFW"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIl-Hs-kU4" userLabel="Phone Number Control" customClass="CopperKitPhoneNumberControl" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="100" y="0.0" width="255" height="55"/>
+                                                                    <color key="backgroundColor" red="0.066666666669999999" green="0.88235294119999996" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </view>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstItem="LIl-Hs-kU4" firstAttribute="height" secondItem="giv-gg-ZH1" secondAttribute="height" id="6Rx-zl-tmm"/>
+                                                                <constraint firstItem="PDT-ZG-Afn" firstAttribute="height" secondItem="giv-gg-ZH1" secondAttribute="height" id="8Qf-yP-rBm"/>
+                                                                <constraint firstAttribute="height" constant="55" id="FCU-IG-KdJ"/>
+                                                                <constraint firstItem="LIl-Hs-kU4" firstAttribute="leading" secondItem="PDT-ZG-Afn" secondAttribute="trailing" constant="20" id="GYq-1u-gMh"/>
+                                                                <constraint firstItem="PDT-ZG-Afn" firstAttribute="leading" secondItem="giv-gg-ZH1" secondAttribute="leading" constant="20" id="l2n-Wm-bLs"/>
+                                                                <constraint firstItem="LIl-Hs-kU4" firstAttribute="centerY" secondItem="giv-gg-ZH1" secondAttribute="centerY" id="qeV-hC-XMJ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="LIl-Hs-kU4" secondAttribute="trailing" constant="20" id="rLA-uL-Ngh"/>
+                                                                <constraint firstItem="PDT-ZG-Afn" firstAttribute="centerY" secondItem="giv-gg-ZH1" secondAttribute="centerY" id="uTq-RI-QWt"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="giv-gg-ZH1" firstAttribute="centerX" secondItem="Y9i-7K-6kF" secondAttribute="centerX" id="2NC-hL-DJN"/>
+                                                        <constraint firstItem="giv-gg-ZH1" firstAttribute="width" secondItem="Y9i-7K-6kF" secondAttribute="width" id="Pcm-7a-eb5"/>
+                                                        <constraint firstItem="giv-gg-ZH1" firstAttribute="top" secondItem="Y9i-7K-6kF" secondAttribute="top" constant="20" id="dqF-eD-0T8"/>
+                                                        <constraint firstAttribute="bottom" secondItem="giv-gg-ZH1" secondAttribute="bottom" id="tWI-at-fmp"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="countryCodeControl" destination="PDT-ZG-Afn" id="PQA-fS-bfR"/>
+                                                    <outlet property="phoneEntryView" destination="giv-gg-ZH1" id="8nG-M6-zqA"/>
+                                                    <outlet property="phoneNumberControl" destination="LIl-Hs-kU4" id="NSP-f4-hqf"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="com.copper.alert.digitEntryCell" rowHeight="55" id="3MZ-XG-jan" userLabel="com.copper.alert.digitEntryCell" customClass="CopperAlertDigitEntryCell" customModule="CopperKit" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="474" width="375" height="55"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3MZ-XG-jan" id="2lT-s1-ZUw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gvi-nv-t8Z" userLabel="Digit Entry View">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R72-wN-CA6" customClass="CopperKitDigitControl" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="20" y="0.0" width="47.5" height="55"/>
+                                                                    <color key="backgroundColor" red="0.26822815290000002" green="1" blue="0.93134226070000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0d-fh-1hW" customClass="CopperKitDigitControl" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="72" y="0.0" width="47" height="55"/>
+                                                                    <color key="backgroundColor" red="0.0019650963429999999" green="0.68235294120000001" blue="0.046534809119999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flb-CT-qFi" customClass="CopperKitDigitControl" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="177" y="0.0" width="20" height="55"/>
+                                                                    <color key="backgroundColor" red="0.0019650963429999999" green="0.68235294120000001" blue="0.046534809119999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="20" id="9UX-xy-XLe"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ZT-Cx-zyf" customClass="CopperKitDigitControl" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="202" y="0.0" width="47.5" height="55"/>
+                                                                    <color key="backgroundColor" red="0.26822815290000002" green="1" blue="0.93134226070000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Um4-S0-fug" customClass="CopperKitDigitControl" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="255" y="0.0" width="47" height="55"/>
+                                                                    <color key="backgroundColor" red="0.0019650963429999999" green="0.68235294120000001" blue="0.046534809119999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FFF-uC-8u2" customClass="CopperKitDigitControl" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="307" y="0.0" width="47.5" height="55"/>
+                                                                    <color key="backgroundColor" red="0.26822815290000002" green="1" blue="0.93134226070000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uz9-DC-PO3" customClass="CopperKitDigitControl" customModule="CopperKit" customModuleProvider="target">
+                                                                    <rect key="frame" x="124" y="0.0" width="48" height="55"/>
+                                                                    <color key="backgroundColor" red="0.26822815290000002" green="1" blue="0.93134226070000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </view>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstItem="uz9-DC-PO3" firstAttribute="width" secondItem="R72-wN-CA6" secondAttribute="width" id="6g7-YS-Xu5"/>
+                                                                <constraint firstItem="L0d-fh-1hW" firstAttribute="height" secondItem="Gvi-nv-t8Z" secondAttribute="height" id="7fq-aI-brK"/>
+                                                                <constraint firstItem="FFF-uC-8u2" firstAttribute="height" secondItem="Gvi-nv-t8Z" secondAttribute="height" id="8WQ-2c-KhT"/>
+                                                                <constraint firstItem="FFF-uC-8u2" firstAttribute="leading" secondItem="Um4-S0-fug" secondAttribute="trailing" constant="5" id="8XG-hX-VvZ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="FFF-uC-8u2" secondAttribute="trailing" constant="20" id="8Yh-AW-c8c"/>
+                                                                <constraint firstItem="R72-wN-CA6" firstAttribute="height" secondItem="Gvi-nv-t8Z" secondAttribute="height" id="9Td-NX-akB"/>
+                                                                <constraint firstItem="L0d-fh-1hW" firstAttribute="leading" secondItem="R72-wN-CA6" secondAttribute="trailing" constant="5" id="AG8-s0-NYP"/>
+                                                                <constraint firstItem="uz9-DC-PO3" firstAttribute="centerY" secondItem="Gvi-nv-t8Z" secondAttribute="centerY" id="Gr6-CU-3xL"/>
+                                                                <constraint firstItem="Um4-S0-fug" firstAttribute="centerY" secondItem="Gvi-nv-t8Z" secondAttribute="centerY" id="Jz3-tK-3hW"/>
+                                                                <constraint firstItem="R72-wN-CA6" firstAttribute="width" secondItem="L0d-fh-1hW" secondAttribute="width" id="QEi-DX-fel"/>
+                                                                <constraint firstItem="flb-CT-qFi" firstAttribute="centerY" secondItem="Gvi-nv-t8Z" secondAttribute="centerY" id="TZT-sJ-tDl"/>
+                                                                <constraint firstItem="FFF-uC-8u2" firstAttribute="width" secondItem="R72-wN-CA6" secondAttribute="width" id="Ujx-WL-sYL"/>
+                                                                <constraint firstItem="R72-wN-CA6" firstAttribute="leading" secondItem="Gvi-nv-t8Z" secondAttribute="leading" constant="20" id="VuS-5K-1Ax"/>
+                                                                <constraint firstItem="0ZT-Cx-zyf" firstAttribute="centerY" secondItem="Gvi-nv-t8Z" secondAttribute="centerY" id="WqU-aS-N2b"/>
+                                                                <constraint firstItem="uz9-DC-PO3" firstAttribute="leading" secondItem="L0d-fh-1hW" secondAttribute="trailing" constant="5" id="YKr-w6-amG"/>
+                                                                <constraint firstItem="flb-CT-qFi" firstAttribute="leading" secondItem="uz9-DC-PO3" secondAttribute="trailing" constant="5" id="ZCo-HG-k9C"/>
+                                                                <constraint firstItem="0ZT-Cx-zyf" firstAttribute="leading" secondItem="flb-CT-qFi" secondAttribute="trailing" constant="5" id="ZuF-Sg-4D0"/>
+                                                                <constraint firstItem="Um4-S0-fug" firstAttribute="width" secondItem="R72-wN-CA6" secondAttribute="width" id="eCm-2x-IIS"/>
+                                                                <constraint firstItem="FFF-uC-8u2" firstAttribute="centerY" secondItem="Gvi-nv-t8Z" secondAttribute="centerY" id="eMi-yR-Yhj"/>
+                                                                <constraint firstAttribute="height" constant="55" id="eiu-o3-1Ew"/>
+                                                                <constraint firstItem="R72-wN-CA6" firstAttribute="centerY" secondItem="Gvi-nv-t8Z" secondAttribute="centerY" id="fLa-bw-vDT"/>
+                                                                <constraint firstItem="flb-CT-qFi" firstAttribute="height" secondItem="Gvi-nv-t8Z" secondAttribute="height" id="kgA-g3-QcI"/>
+                                                                <constraint firstItem="0ZT-Cx-zyf" firstAttribute="height" secondItem="Gvi-nv-t8Z" secondAttribute="height" id="kiA-uf-Qke"/>
+                                                                <constraint firstItem="L0d-fh-1hW" firstAttribute="centerY" secondItem="Gvi-nv-t8Z" secondAttribute="centerY" id="mHs-GC-N1c"/>
+                                                                <constraint firstItem="Um4-S0-fug" firstAttribute="height" secondItem="Gvi-nv-t8Z" secondAttribute="height" id="nJL-mr-349"/>
+                                                                <constraint firstItem="uz9-DC-PO3" firstAttribute="height" secondItem="Gvi-nv-t8Z" secondAttribute="height" id="s5R-Mf-mc6"/>
+                                                                <constraint firstItem="0ZT-Cx-zyf" firstAttribute="width" secondItem="R72-wN-CA6" secondAttribute="width" id="yIG-mO-JcR"/>
+                                                                <constraint firstItem="Um4-S0-fug" firstAttribute="leading" secondItem="0ZT-Cx-zyf" secondAttribute="trailing" constant="5" id="zOH-un-dv5"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Gvi-nv-t8Z" firstAttribute="width" secondItem="2lT-s1-ZUw" secondAttribute="width" id="Zdb-tG-wTy"/>
+                                                        <constraint firstItem="Gvi-nv-t8Z" firstAttribute="height" secondItem="2lT-s1-ZUw" secondAttribute="height" id="q0i-nz-Haf"/>
+                                                        <constraint firstItem="Gvi-nv-t8Z" firstAttribute="centerY" secondItem="2lT-s1-ZUw" secondAttribute="centerY" id="xQl-Xm-mPM"/>
+                                                        <constraint firstItem="Gvi-nv-t8Z" firstAttribute="centerX" secondItem="2lT-s1-ZUw" secondAttribute="centerX" id="ynM-wc-lFX"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="digit0" destination="R72-wN-CA6" id="4qZ-U8-BS8"/>
+                                                    <outlet property="digit1" destination="L0d-fh-1hW" id="4eb-vA-kwS"/>
+                                                    <outlet property="digit2" destination="uz9-DC-PO3" id="fAn-9G-aUE"/>
+                                                    <outlet property="digit3" destination="0ZT-Cx-zyf" id="2YG-a7-SVf"/>
+                                                    <outlet property="digit4" destination="Um4-S0-fug" id="9Zb-gB-RoB"/>
+                                                    <outlet property="digit5" destination="FFF-uC-8u2" id="0OG-hm-SU4"/>
+                                                    <outlet property="digitEntryView" destination="Gvi-nv-t8Z" id="w3f-FS-Waa"/>
+                                                    <outlet property="digitSeparator" destination="flb-CT-qFi" id="bqg-1B-1KK"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="ZXK-gt-08N" firstAttribute="centerX" secondItem="7l7-0u-AM7" secondAttribute="centerX" id="91e-bK-Vxd"/>
+                                    <constraint firstItem="ZXK-gt-08N" firstAttribute="top" secondItem="7l7-0u-AM7" secondAttribute="top" constant="20" id="Gao-JA-OXD"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZXK-gt-08N" secondAttribute="bottom" constant="20" id="uAK-rl-bCd"/>
+                                    <constraint firstItem="ZXK-gt-08N" firstAttribute="width" secondItem="7l7-0u-AM7" secondAttribute="width" id="zte-24-uDJ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundLower" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="includeShadow" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3S-Go-sWN" customClass="NetworkActivityIndicatorView" customModule="CopperKit">
+                                <rect key="frame" x="0.0" y="20" width="375" height="2"/>
+                                <color key="backgroundColor" red="1" green="0.65002219189999999" blue="0.38946641840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="Q1A-iA-tWi"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.26822815290000002" green="1" blue="0.93134226070000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="7l7-0u-AM7" firstAttribute="width" secondItem="f3l-aR-Oam" secondAttribute="width" id="K9K-jN-kkH"/>
+                            <constraint firstItem="Mkk-v3-Ml4" firstAttribute="top" secondItem="7l7-0u-AM7" secondAttribute="top" constant="530" id="XCH-E6-7y9"/>
+                            <constraint firstItem="7l7-0u-AM7" firstAttribute="height" secondItem="f3l-aR-Oam" secondAttribute="height" id="XsJ-Fe-65U"/>
+                            <constraint firstItem="G3S-Go-sWN" firstAttribute="width" secondItem="f3l-aR-Oam" secondAttribute="width" id="Y2H-Si-638"/>
+                            <constraint firstItem="G3S-Go-sWN" firstAttribute="centerX" secondItem="f3l-aR-Oam" secondAttribute="centerX" id="d6A-tK-gFG"/>
+                            <constraint firstItem="7l7-0u-AM7" firstAttribute="centerX" secondItem="f3l-aR-Oam" secondAttribute="centerX" id="tLm-J8-DaP"/>
+                            <constraint firstItem="G3S-Go-sWN" firstAttribute="top" secondItem="DPQ-od-Jqs" secondAttribute="bottom" id="xvw-3s-vzB"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="roundLower" value="NO"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="includeShadow" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <navigationItem key="navigationItem" id="STz-2n-irF"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="G3S-Go-sWN" id="x2W-6D-ukc"/>
+                        <outlet property="alertView" destination="7l7-0u-AM7" id="8M5-Va-fvh"/>
+                        <outlet property="alertViewHeightConstraint" destination="XCH-E6-7y9" id="215-Gk-pZq"/>
+                        <outlet property="tableView" destination="ZXK-gt-08N" id="sLu-Ej-mGB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kMS-Ak-346" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3588.5" y="-3810.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="copperkit-icon-backspace" width="23" height="17"/>
+    </resources>
+</document>
