@@ -9,7 +9,7 @@ Copper is a service for developers to offer password-free authentication and sig
 
 The sample project within demonstrates how to use CopperKit in a working app. 
 
-## [Full documentation for CopperKit can be found at Copperworks, our developers site.](https://withcopper.com/copperworks#ios)
+## [Full documentation for CopperKit can be found at our developer site.](https://withcopper.com/copperworks#ios)
 
 
 ## Example
