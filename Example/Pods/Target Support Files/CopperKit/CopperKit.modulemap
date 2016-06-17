@@ -1,0 +1,6 @@
+framework module CopperKit {
+  umbrella header "CopperKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
