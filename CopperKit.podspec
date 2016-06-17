@@ -7,36 +7,30 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'CopperKit'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of CopperKit.'
+s.name             = 'CopperKit'
+s.version          = '3.0.1'
+s.summary          = 'Password-free signup for your product.'
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+s.description      = <<-DESC
+Copper is a service for developers to offer password-free authentication and signups to users. CopperKit users international SMS messages, and a beautiful, user-friendly signup form to get people into your app as quickly as possible. Copper remember users' information across apps so that they never have repeat themselves resulting in higher conversions into real users. Check signin and signup off the launch list and ship faster with Copper.
+DESC
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+s.homepage         = 'https://github.com/withcopper/CopperKit'
+# s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+s.license          = { :type => 'MIT', :file => 'LICENSE' }
+s.author           = { 'Copper Technologies' => 'humans@withcopper.com' }
+s.source           = { :git => 'https://github.com/withcopper/CopperKit.git', :tag => s.version.to_s }
+s.social_media_url = 'https://twitter.com/withcopper'
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/CopperKit'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Doug Williams' => 'dougw@igudo.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/CopperKit.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+s.ios.deployment_target = '8.2'
 
-  s.ios.deployment_target = '8.0'
+s.source_files = 'CopperKit/**/*.{swift,m,h,mm,hpp,cpp,c}'
 
-  s.source_files = 'CopperKit/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'CopperKit' => ['CopperKit/Assets/*.png']
-  # }
+s.resource_bundles = {
+  'CopperKit' => ['CopperKit/**/*.{storyboard,xib,xcassets,framework}']
+}
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+# s.public_header_files = 'CopperKit/**/*.{h}'
+s.frameworks = 'UIKit', 'Foundation'
+# s.dependency 'AFNetworking', '~> 2.3'
 end
