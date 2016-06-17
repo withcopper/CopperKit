@@ -20,6 +20,7 @@ public var CopperKitBundle: NSBundle { // NSBundle(forClass: C29Config.self)
         return bundle!
     }
 }
+//public let CopperKitBundle = NSBundle(forClass: C29Config.self)
 
 public var CopperKitVersion: String {
     let version = CopperKitBundle.objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
