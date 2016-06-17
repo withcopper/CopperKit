@@ -1,0 +1,6 @@
+use_frameworks!
+
+target 'CopperKit_Example' do
+  pod 'CopperKit', :path => '../'
+end
+

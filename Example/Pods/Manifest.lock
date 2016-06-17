@@ -1,0 +1,16 @@
+PODS:
+  - CopperKit (2.1.2)
+
+DEPENDENCIES:
+  - CopperKit (from `../`)
+
+EXTERNAL SOURCES:
+  CopperKit:
+    :path: ../
+
+SPEC CHECKSUMS:
+  CopperKit: 24642769b1e298a0f051381cbbe3848a11cd7161
+
+PODFILE CHECKSUM: 28a49a94fbbed20549527bcb9f03e439d6dd97bc
+
+COCOAPODS: 1.0.1
