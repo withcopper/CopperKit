@@ -5,8 +5,6 @@
 [![License](https://img.shields.io/cocoapods/l/CopperKit.svg?style=flat)](http://cocoapods.org/pods/CopperKit)
 [![Platform](https://img.shields.io/cocoapods/p/CopperKit.svg?style=flat)](http://cocoapods.org/pods/CopperKit)
 
-# CopperKit
-
 Copper is a service for developers to offer password-free authentication and signups to users. CopperKit users international SMS messages, and a beautiful, user-friendly signup form to get people into your app as quickly as possible. Copper remember users' information across apps so that they never have repeat themselves resulting in higher conversions into real users. Check signin and signup off the launch list and ship faster with Copper.
 
 The sample project within demonstrates how to use CopperKit in a working app. 
