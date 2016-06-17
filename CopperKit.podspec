@@ -30,8 +30,7 @@ s.resource_bundles = {
   'CopperKit' => ['CopperKit/**/*.{storyboard,xib,xcassets,framework}']
 }
 
-# s.public_header_files = 'CopperKit/**/*.{h}'
-s.public_header_files = 'CopperKit.framework/Headers/*.h'
+s.public_header_files = 'CopperKit/**/*.{h}'
 s.frameworks = 'UIKit', 'Foundation'
 # s.dependency 'AFNetworking', '~> 2.3'
 end
