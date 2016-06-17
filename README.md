@@ -32,7 +32,7 @@ pod "CopperKit"
 ## Author
 
 Copper Technologies, humans@withcopper.com
-Doug Williams, dougw@igudo.com
+Doug Williams, doug@withcopper.com
 
 ## License
 
