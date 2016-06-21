@@ -105,8 +105,8 @@ public class C29UserInfo: NSObject {
         for scopeDict in dataDict {
             guard let scopeRaw = scopeDict.key as? String,
                 let scope = C29Scope.fromString(scopeRaw) else {
-                    C29LogWithRemote(.Error, error: Error.UserInfoInvalidScope.nserror, infoDict: ["scopeRaw":scopeDict.key])
-                    break
+                    C29LogWithRemote(.Warning, error: Error.UserInfoInvalidScope.nserror, infoDict: ["scopeRaw":scopeDict.key])
+                    continue
             }
             
             guard let recordDict = scopeDict.value as? NSDictionary else {
