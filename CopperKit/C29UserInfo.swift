@@ -103,12 +103,14 @@ public class C29UserInfo: NSObject {
         let group = dispatch_group_create()
         // print(dataDict)
         for scopeDict in dataDict {
-            guard let scopeRaw = scopeDict.key as? String,
-                let scope = C29Scope.fromString(scopeRaw) else {
-                    C29LogWithRemote(.Warning, error: Error.UserInfoInvalidScope.nserror, infoDict: ["scopeRaw":scopeDict.key])
-                    continue
+            guard let scopeRaw = scopeDict.key as? String, scope = C29Scope.fromString(scopeRaw) else {
+                // we want to ignore 'id' since they aren't a real record type, and we set them in init
+                if (scopeDict.key as? String) != "id" {
+                    C29LogWithRemote(.Warning, error: Error.UserInfoInvalidScope.nserror, infoDict: ["scopeRaw": scopeDict.key])
+                }
+                continue
             }
-            
+
             guard let recordDict = scopeDict.value as? NSDictionary else {
                 C29LogWithRemote(.Debug, error: Error.UserInfoNilData.nserror, infoDict: dataDict as! [String : AnyObject])
                 continue

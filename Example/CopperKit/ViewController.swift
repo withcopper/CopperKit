@@ -48,6 +48,8 @@ class ViewController: UIViewController {
         // Optionally, decide what information we want from the user
         copper!.scopes = desiredScopes
         // OK, let's make our call
+        // An example with an optional phoneNumber varable (to skip entry)
+        // copper!.login(withViewController: self, phoneNumber: "17165550000", completion: { (result: C29UserInfoResult)
         copper!.login(withViewController: self, completion: { (result: C29UserInfoResult) in
             switch result {
             case let .Success(userInfo):

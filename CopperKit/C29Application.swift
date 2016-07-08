@@ -198,21 +198,21 @@ public class C29Application: NSObject {
                     return
                 // 2. always fall back to the full web dialog
                 } else {
-//                    // We have to display this to present on top of
-//                    // Adds context for the user too, which is helpful
-//                    self.showAuthenticationAlert(withViewController: viewController, completion: {
-//                        // no op
-//                    })
-//                    self.displayCopperWeb(withViewController: self.authenticationAlert.alertController)
+                    // We have to display this to present on top of
+                    // Adds context for the user too, which is helpful
+                    // self.showAuthenticationAlert(withViewController: viewController, completion: {
+                    // // no op
+                    // })
+                    // self.displayCopperWeb(withViewController: self.authenticationAlert.alertController)
                     self.displayCopperWeb(withViewController: viewController)
                     return
                 }
             // Not authenticated
             } else {
                 // We need to auth
-//                self.showAuthenticationAlert(withViewController: viewController, completion: {
-//                    // no op
-//                })
+                // self.showAuthenticationAlert(withViewController: viewController, completion: {
+                // // no op
+                // s})
                 self.displayCopperWeb(withViewController: viewController)
             }
         }
