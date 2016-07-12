@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'CopperKit'
-s.version          = '3.0.4'
+s.version          = '3.1'
 s.summary          = 'Password-free signup for your product.'
 
 s.description      = <<-DESC

@@ -50,7 +50,7 @@ public class C29Application: NSObject {
         case Scope = "scope"
         case ApplicationType = "application_type"
         case Token = "token"
-        case PhoneNumber = "phone_number"
+        case PrefillId = "id"
     }
     
     private let CopperKitApplicationType = "copperkit9"
@@ -78,7 +78,10 @@ public class C29Application: NSObject {
     
     public var authenticated: Bool {
         get {
-            return self.jwt != nil && self.userId != nil && self.verificationResult != nil && self.phoneRecord.valid
+            guard let prefillIdRecord = prefillIdRecord else {
+                return false
+            }
+            return self.jwt != nil && self.userId != nil && self.verificationResult != nil && prefillIdRecord.valid
         }
     }
     
@@ -122,7 +125,7 @@ public class C29Application: NSObject {
     // MARK: Private internal variables
     private var mixpanel = Mixpanel(token: MixPanelToken)
     private var completion: C29ApplicationUserInfoCompletionHandler?
-    public var phoneRecord = CopperPhoneRecord()
+    public var prefillIdRecord: CopperRecord?
     
     // MARK: View Controllers and UI elements
     private var presentingViewController: UIViewController?
@@ -163,20 +166,42 @@ public class C29Application: NSObject {
         coordinator = C29UserInfoCoordinator(application: self)
     }
     
-    public func login(withViewController viewController: UIViewController, phoneNumber: String! = nil, completion: C29ApplicationUserInfoCompletionHandler) {
+    public func login(withViewController viewController: UIViewController, emailAddress: String, completion: C29ApplicationUserInfoCompletionHandler) {
+        let emailRecord = CopperEmailRecord(address: emailAddress)
+        if emailRecord.valid {
+            self.prefillIdRecord = emailRecord
+        }
+        self.login(withViewController: viewController, completion: completion)
+    }
+        
+    public func login(withViewController viewController: UIViewController, phoneNumber: String, completion: C29ApplicationUserInfoCompletionHandler) {
+        let phoneRecord = CopperPhoneRecord(isoNumber: phoneNumber)
+        if phoneRecord.valid {
+            self.prefillIdRecord = phoneRecord
+        }
+        self.login(withViewController: viewController, completion: completion)
+    }
+    
+    public func login(withViewController viewController: UIViewController, completion: C29ApplicationUserInfoCompletionHandler) {
         C29Log(.Debug, "C29Application login with applicationId \(_applicationId ?? "null") and scopes \(C29Scope.getCommaDelinatedString(fromScopes: scopes) ?? "no scopes")")
-        // Housekeeping:
-        guard guaranteeConfigured() else {
-            C29Log(.Error, Error.ApplicationIdNotSet.reason)
-            completion(result: .Failure(Error.ApplicationIdNotSet.nserror))
+        
+        // Housekeeping: ensure we've configured CopperKit correctly
+        if let configurationError = guaranteeConfigured() {
+            C29Log(.Error, configurationError.localizedDescription)
+            completion(result: .Failure(configurationError))
+            let alertController = UIAlertController(title: "CopperKit is misconfigured", message: configurationError.localizedDescription, preferredStyle: .Alert)
+            let okAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                // no op
+            }
+            alertController.addAction(okAction)
+            viewController.presentViewController(alertController, animated: true) {
+                // ...
+            }
             return
         }
         
         // Store our instance variables
         self.presentingViewController = viewController
-        if let phoneNumber = phoneNumber {
-            self.phoneRecord = CopperPhoneRecord(isoNumber: phoneNumber)
-        }
         self.completion = completion
         
         // Give the alertViewController animations time to finish and be seen
@@ -222,7 +247,11 @@ public class C29Application: NSObject {
         // TODO check for our cookie!
         authenticationAlert = C29AuthenticationAlertController(networkAPI: networkAPI)
         authenticationAlert.delegate = self
-        authenticationAlert.phoneRecord = self.phoneRecord
+        if let phoneRecord = prefillIdRecord as? CopperPhoneRecord {
+            authenticationAlert.phoneRecord = phoneRecord
+        } else {
+            authenticationAlert.phoneRecord = CopperPhoneRecord()
+        }
         let state: C29AuthenticationAlertController.State = authenticated ? .Login : .PhoneNumber
         authenticationAlert.setState(state)
         authenticationAlert.displayWithViewController(viewController, completion: {
@@ -246,10 +275,19 @@ public class C29Application: NSObject {
         queryItems.append(queryApplicationType)
         let queryScope = NSURLQueryItem(name: QueryItems.Scope.rawValue, value: C29Scope.getCommaDelinatedString(fromScopes: scopes))
         queryItems.append(queryScope)
-        if let phoneNumber = phoneRecord.phoneNumber {
-            let queryPhoneNumber = NSURLQueryItem(name: QueryItems.PhoneNumber.rawValue, value: phoneNumber)
-            queryItems.append(queryPhoneNumber)
+        
+        // do we have a prefill to account for?
+        var prefillId: String?
+        if let emailRecord = prefillIdRecord as? CopperEmail {
+            prefillId = emailRecord.address
+        } else if let phoneRecord = prefillIdRecord as? CopperPhone  {
+            prefillId = phoneRecord.phoneNumber
         }
+        if let prefillId = prefillId {
+            let queryPrefillId = NSURLQueryItem(name: QueryItems.PrefillId.rawValue, value: prefillId)
+            queryItems.append(queryPrefillId)
+        }
+        
         urlComponents?.queryItems = queryItems
         guard let url = urlComponents?.URL else {
             C29Log(.Error, "Unable to create the Copper Web url")
@@ -298,7 +336,7 @@ public class C29Application: NSObject {
     }
     
     public func closeSession() {
-        self.phoneRecord = CopperPhoneRecord()
+        self.prefillIdRecord = nil
         self.verificationResult = nil
         coordinator = C29UserInfoCoordinator(application: self)
     }
@@ -416,11 +454,27 @@ public class C29Application: NSObject {
         return "cu\(id)"
     }
     
-    private func guaranteeConfigured() -> Bool {
+    private func guaranteeConfigured() -> NSError? {
+        // ensure the appId is set
         guard let _ = _applicationId else {
-            return false
+            return Error.ApplicationIdNotSet.nserror
         }
-        return true
+        // ensure the app is configured with the Custom URL as expected
+        guard let urlTypes = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleURLTypes") as? NSArray else {
+            return Error.URLSchemeNotConfigured.nserror
+        }
+        for urlTypeDict in urlTypes {
+            if let urlSchemes = (urlTypeDict as? NSDictionary)?["CFBundleURLSchemes"] as? [String] {
+                for urlScheme in urlSchemes {
+                    if urlScheme.caseInsensitiveCompare(getCustomURLScheme()!) == NSComparisonResult.OrderedSame {
+                        return nil // our expected scheme was found.
+                    }
+                }
+            }
+
+        }
+        // our expected scheme was not found
+        return Error.URLSchemeNotConfigured.nserror
     }
 }
 
@@ -460,7 +514,7 @@ extension C29Application: C29UserInfoViewControllerDelegate {
 extension C29Application: C29AuthenticationAlertControllerDelegate {
     public func authenticationDidFinishWithVerificationResult(result: C29VerificationResult, phoneRecord: CopperPhoneRecord) {
         self.verificationResult = result
-        self.phoneRecord = phoneRecord
+        self.prefillIdRecord = phoneRecord
         self.trackEvent(.LoginSuccessful)
         if scopes != nil {
             self.displayCopperWeb(withViewController: authenticationAlert.alertController)
@@ -505,6 +559,7 @@ extension C29Application {
         case LoginError = 1
         case ApplicationIdNotSet = 2
         case InvalidConfiguration = 3
+        case URLSchemeNotConfigured = 4
         case AuthError = 5
         
         public var reason: String {
@@ -517,6 +572,8 @@ extension C29Application {
                 return "Copper Application Id is not set. You must call C29Application.configure(withApplicationId: \"<appId>\"), where <appId> is your application's ID found on Copperworks @ withcopper.com/apps"
             case .InvalidConfiguration:
                 return "The C29Application class is not configured properly. Set debug=true for full error reports."
+            case .URLSchemeNotConfigured:
+                return "You must configure a Custom URL scheme for your app. See CopperKit documentation for the full details."
             case .AuthError:
                 return "The API returned an auth error -- jwt is potentially expired -- TODO implement better handling in the network delegate"
             }
