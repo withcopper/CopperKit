@@ -170,6 +170,8 @@ public class C29Application: NSObject {
         let emailRecord = CopperEmailRecord(address: emailAddress)
         if emailRecord.valid {
             self.prefillIdRecord = emailRecord
+        } else {
+            C29Log(.Warning, Error.InvalidEmailPrefill.reason)
         }
         self.login(withViewController: viewController, completion: completion)
     }
@@ -178,6 +180,8 @@ public class C29Application: NSObject {
         let phoneRecord = CopperPhoneRecord(isoNumber: phoneNumber)
         if phoneRecord.valid {
             self.prefillIdRecord = phoneRecord
+        } else {
+            C29Log(.Warning, Error.InvalidPhonePrefill.reason)
         }
         self.login(withViewController: viewController, completion: completion)
     }
@@ -561,6 +565,8 @@ extension C29Application {
         case InvalidConfiguration = 3
         case URLSchemeNotConfigured = 4
         case AuthError = 5
+        case InvalidPhonePrefill = 6
+        case InvalidEmailPrefill = 7
         
         public var reason: String {
             switch self {
@@ -569,13 +575,17 @@ extension C29Application {
             case .LoginError:
                 return "There was a problem logging in."
             case .ApplicationIdNotSet:
-                return "Copper Application Id is not set. You must call C29Application.configure(withApplicationId: \"<appId>\"), where <appId> is your application's ID found on Copperworks @ withcopper.com/apps"
+                return "Copper Application Id is not set. You must call C29Application.configureForApplication(applicationId: \"<appId>\"), where <appId> is your application's ID found on Copperworks @ withcopper.com/apps"
             case .InvalidConfiguration:
                 return "The C29Application class is not configured properly. Set debug=true for full error reports."
             case .URLSchemeNotConfigured:
                 return "You must configure a Custom URL scheme for your app. See CopperKit documentation for the full details."
             case .AuthError:
                 return "The API returned an auth error -- jwt is potentially expired -- TODO implement better handling in the network delegate"
+            case .InvalidEmailPrefill:
+                return "The email address provided for prefill was not valid and will be ignored."
+            case .InvalidPhonePrefill:
+                return "The phone number provided for prefill was not valid and will be ignored."
             }
         }
         public var description: String {
