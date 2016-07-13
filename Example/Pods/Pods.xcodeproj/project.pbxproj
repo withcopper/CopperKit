@@ -882,6 +882,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/CopperKit/CopperKit.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = CopperKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -976,6 +977,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/CopperKit/ResourceBundle-CopperKit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = CopperKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
