@@ -320,11 +320,11 @@
 			isa = PBXGroup;
 			children = (
 				1ACFF1B35FE729E2BEB41008A1094347 /* Array+Copper.swift */,
+				7C4B4B75BDDB66A64E654F6BEB631083 /* C29Alert.swift */,
 				252BB0A104F024C4F74116C85364F5D7 /* C29API.swift */,
 				6FFE7615664CFC22FF199A983BF9383E /* C29Application.swift */,
 				F1BA6A9E2D3E721419E85A8A47365665 /* C29AuthenticationAlertController.swift */,
 				CA210061F451ECE461ED7EA8C5B20023 /* C29BrowserLoginViewController.swift */,
-				7C4B4B75BDDB66A64E654F6BEB631083 /* C29Alert.swift */,
 				32E3EC627A11E9411AACEC8E74EC0BE6 /* C29Bytes.swift */,
 				485E719F05266532FD9BB4487BCE06C9 /* C29Config.swift */,
 				C2D15E2D98EE25EB05CBFB407EA8774C /* C29CopperworksApplication.swift */,
@@ -882,7 +882,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/CopperKit/CopperKit.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = CopperKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -977,7 +976,6 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/CopperKit/ResourceBundle-CopperKit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = CopperKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

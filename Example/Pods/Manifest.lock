@@ -1,5 +1,5 @@
 PODS:
-  - CopperKit (3.0.3)
+  - CopperKit (3.1.2)
 
 DEPENDENCIES:
   - CopperKit (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  CopperKit: 70cea73913e4560fe6c63d43ab509f005f27145b
+  CopperKit: 6bfb5ccb8ad7e4df94df11ef38dfee4eae0e9a6d
 
 PODFILE CHECKSUM: 28a49a94fbbed20549527bcb9f03e439d6dd97bc
 
